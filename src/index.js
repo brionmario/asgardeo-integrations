@@ -26,8 +26,8 @@ import { AuthProvider } from "@asgardeo/auth-react";
 const Index = () => (
     <AuthProvider
         config={ {
-            signInRedirectURL: "http://localhost:3000",
-            signOutRedirectURL: "http://localhost:3000",
+            signInRedirectURL: "https://localhost:3000",
+            signOutRedirectURL: "https://localhost:3000",
             clientID: "<CLIENT_ID>",
             serverOrigin: "https://api.asgardeo.io/t/<YOUR_ORGANIZATION>",
             scope: [ "openid","profile" ]
