@@ -29,7 +29,7 @@ const Index = () => (
             signInRedirectURL: "http://localhost:3000",
             signOutRedirectURL: "http://localhost:3000",
             clientID: "<CLIENT_ID>",
-            serverOrigin: "https://api.asgardeo.io/t/<YOUR_TENANT>",
+            serverOrigin: "https://api.asgardeo.io/t/<YOUR_ORGANIZATION>",
             scope: [ "openid","profile" ]
         } }
     >
