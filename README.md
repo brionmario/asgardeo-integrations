@@ -42,10 +42,10 @@ Open up the `index.js` file and configure the [AuthProvider](https://github.com/
 
 | Configuration     | Description | Example
 | ----------- | ----------- | ----------- |
-| clientID               | The OAuth 2.0 Client Identifier valid at the authorization server.                            | amkyCEfrTFXFv92C4De6SGDORi0f
-| serverOrigin           | The origin of the Identity Provider                                                          | http://api.asgardeo.io/t/happypets
-| signInRedirectURL      | The URL that determines where the authorization code is sent to upon user authentication.    | http://localhost:3000
-| signOutRedirectURL     | The URL that determines where the user is redirected to upon logout.                         | http://localhost:3000
+| clientID               | The OAuth 2.0 Client Identifier valid at the authorization server.                            | `<YOUR_CLIENT_ID>`
+| serverOrigin           | The origin of the Identity Provider                                                          | https://api.asgardeo.io/t/<YOUR_ORGANIZATION>
+| signInRedirectURL      | The URL that determines where the authorization code is sent to upon user authentication.    | https://localhost:3000
+| signOutRedirectURL     | The URL that determines where the user is redirected to upon logout.                         | https://localhost:3000
 | scope                  | These are the set of scopes that are used to request user attributes.                        | [ "openid","profile"]
 
 Following is a sample snippet of the configured `AuthProvider` with the above example values.
@@ -53,10 +53,10 @@ Following is a sample snippet of the configured `AuthProvider` with the above ex
 ```tsx
 <AuthProvider
     config={ {
-        signInRedirectURL: "http://localhost:3000",
-        signOutRedirectURL: "http://localhost:3000",
-        clientID: "amkyCEfrTFXFv92C4De6SGDORi0f",
-        serverOrigin: "https://api.asgardeo.io/t/happypets",
+        signInRedirectURL: "https://localhost:3000",
+        signOutRedirectURL: "https://localhost:3000",
+        clientID: "<YOUR_CLIENT_ID>",
+        serverOrigin: "https://api.asgardeo.io/t/<YOUR_ORGANIZATION>",
         scope: [ "openid","profile" ]
     } }
 >
@@ -103,7 +103,7 @@ The app behaves differently based on the Authenticated state.
 
 #### Public View
 
-When you initially arrive at the home page ([http://localhost:3000](http://localhost:3000)), you will see a screen like below with a `Login` button since you don't already have a valid session.
+When you initially arrive at the home page ([https://localhost:3000](https://localhost:3000)), you will see a screen like below with a `Login` button since you don't already have a valid session.
 You can click on the button to initiate a login request which will in the background call the [`signIn()`](https://github.com/asgardeo/asgardeo-auth-react-sdk#signin) function from the [`useAuthContext`](https://github.com/asgardeo/asgardeo-auth-react-sdk#useauthcontext) hook.
 
 Then you will be navigated to the login page of Asgardeo where you can provide the credentials of a [Customer user](#a-customer-user-account) you created via the Asgardeo Console and log in.
