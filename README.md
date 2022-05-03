@@ -1,117 +1,77 @@
-# Happy Pets App
+# Turborepo starter
 
-<p align="center">
-    <img alt="Banner" src="docs/images/banner.svg"/>
-</p>
+This is an official Yarn v1 starter turborepo.
 
-Sample app built with [Asgardeo React SDK](https://github.com/asgardeo/asgardeo-auth-react-sdk) to demonstrate [Asgardeo](https://wso2.com/asgardeo) login integration.
+## What's inside?
 
-## Prerequisites
+This turborepo uses [Yarn](https://classic.yarnpkg.com/lang/en/) as a package manager. It includes the following packages/apps:
 
-### Node.js & npm
+### Apps and Packages
 
-You need to have [`npm`](https://www.npmjs.com/) with [`Node.js`](https://nodejs.org/en/). If you don't have them installed on your local environment, install the LTS(Latest stable version) version of Node.js which includes `npm` from the [official downloads page](https://nodejs.org/en/download/).
+- `docs`: a [Next.js](https://nextjs.org) app
+- `web`: another [Next.js](https://nextjs.org) app
+- `ui`: a stub React component library shared by both `web` and `docs` applications
+- `config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
+- `tsconfig`: `tsconfig.json`s used throughout the monorepo
 
-### An account on Asgardeo
+Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
 
-You need to join an organization in Asgardeo. Follow the [documentation](https://wso2.com/asgardeo/docs/get-started/create-asgardeo-account/#sign-up) and create an account along with an organization in Asgardeo.
+### Utilities
 
-### An application on Asgardeo
+This turborepo has some additional tools already setup for you:
 
-You need to have a single-page application registered in Asgardeo in order to try out this integration.
-Follow [this guide](https://wso2.com/asgardeo/docs/guides/applications/register-single-page-app/) and register an application if you haven't already got one.
+- [TypeScript](https://www.typescriptlang.org/) for static type checking
+- [ESLint](https://eslint.org/) for code linting
+- [Prettier](https://prettier.io) for code formatting
 
-### A customer user account
+## Setup
 
-Only customer users can log in to applications. Create a [customer account](https://wso2.com/asgardeo/docs/guides/users/manage-customers/#onboard-customer-user) if you don't already have one.
+This repository is used in the `npx create-turbo` command, and selected when choosing which package manager you wish to use with your monorepo (Yarn).
 
-## Setting Up
+### Build
 
-### Installing Dependencies
+To build all apps and packages, run the following command:
 
-Execute the following command from the root of the project.
-
-```bash
-# From the root
-npm install
+```
+cd my-turborepo
+yarn run build
 ```
 
-## Configuring the SDK
+### Develop
 
-Open up the `index.js` file and configure the [AuthProvider](https://github.com/asgardeo/asgardeo-auth-react-sdk#authprovider) with the following configurations obtained from the Application that you created on Asgardeo.
+To develop all apps and packages, run the following command:
 
-| Configuration     | Description | Example
-| ----------- | ----------- | ----------- |
-| clientID               | The OAuth 2.0 Client Identifier valid at the authorization server.                            | `<YOUR_CLIENT_ID>`
-| serverOrigin           | The origin of the Identity Provider                                                          | https://api.asgardeo.io/t/<YOUR_ORGANIZATION>
-| signInRedirectURL      | The URL that determines where the authorization code is sent to upon user authentication.    | https://localhost:3000
-| signOutRedirectURL     | The URL that determines where the user is redirected to upon logout.                         | https://localhost:3000
-| scope                  | These are the set of scopes that are used to request user attributes.                        | [ "openid","profile"]
-
-Following is a sample snippet of the configured `AuthProvider` with the above example values.
-
-```tsx
-<AuthProvider
-    config={ {
-        signInRedirectURL: "https://localhost:3000",
-        signOutRedirectURL: "https://localhost:3000",
-        clientID: "<YOUR_CLIENT_ID>",
-        serverOrigin: "https://api.asgardeo.io/t/<YOUR_ORGANIZATION>",
-        scope: [ "openid","profile" ]
-    } }
->
-    <App/>
-</AuthProvider>
+```
+cd my-turborepo
+yarn run dev
 ```
 
-If you need further instructions, follow [this guide](https://wso2.com/asgardeo/docs/get-started/try-your-own-app/react/) from our Official Documentation.
+### Remote Caching
 
-## Running the App
+Turborepo can use a technique known as [Remote Caching (Beta)](https://turborepo.org/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
 
-To run the app you can execute the following command from the root of the project.
+By default, Turborepo will cache locally. To enable Remote Caching (Beta) you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup), then enter the following commands:
 
-```bash
-# From the root
-npm start
+```
+cd my-turborepo
+npx turbo login
 ```
 
-## Building the Samples
+This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
 
-Execute the following command from the root of the project.
+Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your turborepo:
 
-```bash
-# From the root
-npm run build
+```
+npx turbo link
 ```
 
-## How does the App work?
+## Useful Links
 
-### Scaffolding
+Learn more about the power of Turborepo:
 
-The application has been created with [Create React App](https://reactjs.org/docs/create-a-new-react-app.html) CLI.
-And we have used the default template i.e JavaScript, you can very well use the [Typescript Template](https://create-react-app.dev/docs/adding-typescript/) since Asgardeo React SDK provides its own typings.
-
-If you would like to integrate your own React application, that is perfectly fine too 🙂
-
-```bash
-npx create-react-app happy-pets-asgardeo-integration
-```
-
-### Different App View
-
-The app behaves differently based on the Authenticated state.
-
-#### Public View
-
-When you initially arrive at the home page ([https://localhost:3000](https://localhost:3000)), you will see a screen like below with a `Login` button since you don't already have a valid session.
-You can click on the button to initiate a login request which will in the background call the [`signIn()`](https://github.com/asgardeo/asgardeo-auth-react-sdk#signin) function from the [`useAuthContext`](https://github.com/asgardeo/asgardeo-auth-react-sdk#useauthcontext) hook.
-
-Then you will be navigated to the login page of Asgardeo where you can provide the credentials of a [Customer user](#a-customer-user-account) you created via the Asgardeo Console and log in.
-
-![Public View](./docs/images/public-view.png)
-
-#### Authenticated view
-
-Once you successfully log in, you will see the following view.
-
-![Authenticated View](./docs/images/authenticated-view.png)
+- [Pipelines](https://turborepo.org/docs/core-concepts/pipelines)
+- [Caching](https://turborepo.org/docs/core-concepts/caching)
+- [Remote Caching (Beta)](https://turborepo.org/docs/core-concepts/remote-caching)
+- [Scoped Tasks](https://turborepo.org/docs/core-concepts/scopes)
+- [Configuration Options](https://turborepo.org/docs/reference/configuration)
+- [CLI Usage](https://turborepo.org/docs/reference/command-line-reference)
