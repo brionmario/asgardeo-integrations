@@ -1,4 +1,0 @@
-HTTPS=true
-HOST=localhost
-PORT=3000
-SKIP_PREFLIGHT_CHECK=true
