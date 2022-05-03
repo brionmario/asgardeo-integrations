@@ -30,8 +30,8 @@ on:
 
 jobs:
   build:
-    name: 🚧 Build
-    timeout-minutes: 15
+    name: 🚧 Build & Deploy
+    if: '${{ github.event.pull_request.head.repo.full_name == github.repository }}'
     strategy:
       matrix:
         os: [ ubuntu-latest ]
@@ -83,8 +83,7 @@ jobs:
         uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
-          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_ASGARDEO_INTEGRATIONS }}
-          channelId: live
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_ASGARDEO_INTEGRATIONS }}'
           projectId: asgardeo-integrations
 
       - name: 🐱 Get Yarn cache directory path

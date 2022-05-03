@@ -1,34 +1,34 @@
 {
   "hosting": [
-      {
-          "target": "happy-pets",
-          "public": "apps/happy-pets/build",
-          "ignore": [
-              "firebase.json",
-              "**/.*",
-              "**/node_modules/**"
-          ],
-          "rewrites": [
-              {
-                  "source": "**",
-                  "destination": "/index.html"
-              }
-          ]
-      },
-      {
-          "target": "netflix",
-          "public": "apps/netflix/build",
-          "ignore": [
-              "firebase.json",
-              "**/.*",
-              "**/node_modules/**"
-          ],
-          "rewrites": [
-              {
-                  "source": "**",
-                  "destination": "/index.html"
-              }
-          ]
-      }
+    {
+      "target": "happy-pets",
+      "public": "apps/happy-pets/build",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
+    },
+    {
+      "target": "netflix",
+      "public": "apps/netflix/build",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
+    }
   ]
 }
