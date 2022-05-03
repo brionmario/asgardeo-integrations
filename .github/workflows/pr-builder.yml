@@ -1,44 +1,19 @@
-name: 🚀 Deploy to Firebase
+# This workflow will build PRs submitted to the main branch.
+
+name: 👷 PR Builder
 
 on:
-  push:
-    branches:
-      - main
-    paths-ignore:
-      - '**/docs/**'
-      - '**/README.md'
-      - '**/.gitignore'
+  pull_request:
+    branches: [ main ]
+    paths_ignore:
+      - "**/*.md"
+      - ".gitignore"
+      - "LICENSE"
   workflow_dispatch:
-    inputs:
-      happy_pets_sign_in_redirect_url:
-        description: 'Happy Pets App Sign In Redirect URL'
-        required: true
-      happy_pets_sign_out_redirect_url:
-        description: 'Happy Pets App Sign Out Redirect URL'
-        required: true
-      happy_pets_client_id:
-        description: 'Happy Pets App Client ID'
-        required: true
-      happy_pets_asgardeo_base_url:
-        description: 'Happy Pets App Asgardeo Base URL'
-        required: true
-      netflix_sign_in_redirect_url:
-        description: 'Netflix App Sign In Redirect URL'
-        required: true
-      netflix_sign_out_redirect_url:
-        description: 'Netflix App Sign Out Redirect URL'
-        required: true
-      netflix_client_id:
-        description: 'Netflix App Client ID'
-        required: true
-      netflix_asgardeo_base_url:
-        description: 'Netflix App Asgardeo Base URL'
-        required: true
 
 jobs:
   build:
     name: 🚧 Build
-    timeout-minutes: 15
     strategy:
       matrix:
         os: [ ubuntu-latest ]
@@ -48,10 +23,8 @@ jobs:
       - name: ⬇️ Checkout
         id: checkout
         uses: actions/checkout@v2.3.3
-        with:
-          fetch-depth: 2
 
-      - name: 🟢 Setup node
+      - name: 🟢 Setup node ${{ matrix.node-version }}
         id: setup-node
         uses: actions/setup-node@v2
         with:
@@ -83,15 +56,6 @@ jobs:
 
           cd ../..
           yarn build
-
-      - name: 🔥 Deploy to Firebase
-        uses: FirebaseExtended/action-hosting-deploy@v0
-        with:
-          repoToken: '${{ secrets.GITHUB_TOKEN }}'
-          firebaseServiceAccount: >-
-            ${{ secrets.FIREBASE_SERVICE_ACCOUNT_ASGARDEO_INTEGRATIONS }}
-          channelId: live
-          projectId: asgardeo-integrations
 
       - name: 🐱 Get Yarn cache directory path
         id: yarn-cache-dir-path
