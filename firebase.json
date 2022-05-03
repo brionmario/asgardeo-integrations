@@ -1,7 +1,7 @@
 {
   "hosting": [
     {
-      "target": "happy-pets",
+      "target": "happy-pets-demo-2022",
       "public": "apps/happy-pets/build",
       "ignore": [
         "firebase.json",
@@ -16,7 +16,7 @@
       ]
     },
     {
-      "target": "netflix",
+      "target": "netflix-demo-2022",
       "public": "apps/netflix/build",
       "ignore": [
         "firebase.json",
