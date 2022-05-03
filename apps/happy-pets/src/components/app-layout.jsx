@@ -37,12 +37,14 @@ export const AppLayout = (props) => {
           !isLoading
             ? children
             : (
-              <BallTriangle
-                color="#a660e4"
-                height={ 100 }
-                width={ 100 }
-                timeout={ 3000 }
-              />
+                <div className="loader-wrapper">
+                    <BallTriangle
+                        color="#a660e4"
+                        height={ 100 }
+                        width={ 100 }
+                        timeout={ 3000 }
+                    />
+                </div>
             )
         }
       </div>

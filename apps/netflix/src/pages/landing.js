@@ -173,7 +173,7 @@ export const LandingPage = () => {
                       <div className="our-story-card-text">
                         <h1 id="" className="our-story-card-title" data-uia="hero-title">Unlimited movies, TV shows, and more.</h1>
                         <h2 id="" className="our-story-card-subtitle" data-uia="our-story-card-subtitle">Watch anywhere. Cancel anytime.</h2>
-                        <form className="cta-form email-form" data-uia="email-form" method="GET">
+                        <div className="cta-form email-form">
                           <h3 className="email-form-title">Ready to watch? Enter your email to create or restart your membership.</h3>
                           <div className="email-form-lockup">
                             <ul className="simpleForm structural ui-grid">
@@ -184,7 +184,7 @@ export const LandingPage = () => {
                               </li>
                             </ul>
                             <div className="our-story-cta-container cta-link-wrapper">
-                              <button className="btn btn-red nmhp-cta nmhp-cta-extra-large btn-none btn-custom" type="submit" autoComplete="off" tabIndex="0" role="link" data-uia="our-story-cta-hero_fuji">
+                              <button className="btn btn-red nmhp-cta nmhp-cta-extra-large btn-none btn-custom" onClick={ () => signIn() }>
                                 <span id="" className="cta-btn-txt" data-uia="">Get Started</span>
                                 <span id="" className="chevron-right-arrow" data-uia="">
                                   <svg viewBox="0 0 6 12" xmlns="http://www.w3.org/2000/svg">
@@ -195,7 +195,7 @@ export const LandingPage = () => {
                               </button>
                             </div>
                           </div>
-                        </form>
+                        </div>
                         <h3 id="" className="our-story-card-disclaimer" data-uia="our-story-card-disclaimer"></h3>
                       </div>
                       <div className="center-pixel" style={ { position: "absolute" } }></div>
