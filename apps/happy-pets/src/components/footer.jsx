@@ -16,13 +16,19 @@
  * under the License.
  */
 
-import React from "react"
-import HappyPetLogo from "../assets/images/happy-pet-logo.png";
+import React from "react";
+import AsgardeoLogo from "../assets/images/asgardeo-logo.svg";
 
-export const Header = () => {
-    return (
-        <div className="header">
-            <img alt="happy-pet-logo" src={ HappyPetLogo }/>
-        </div>
-    )
+export const Footer = () => {
+  return (
+    <div className="footer">
+      <div className="copyright">
+        <p>
+                    ©
+          <script>document.write(new Date().getFullYear());</script>2021 Happy Pet Insurance |
+                    Powered by <img alt="" className="asgardeo-logo" src={ AsgardeoLogo }/>
+        </p>
+      </div>
+    </div>
+  );
 };

@@ -1,0 +1,17 @@
+{
+  "projects": {
+    "default": "asgardeo-integrations"
+  },
+  "targets": {
+    "react-sdk-integration-samples": {
+      "hosting": {
+        "happy-pets": [
+          "happy-pets"
+        ],
+        "netflix": [
+          "netflix"
+        ]
+      }
+    }
+  }
+}

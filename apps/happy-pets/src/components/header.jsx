@@ -16,25 +16,13 @@
  * under the License.
  */
 
-import React from "react";
-import { render } from "react-dom";
-import "./index.css";
-import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
-import App from "./App";
-import { AuthProvider } from "@asgardeo/auth-react";
+import React from "react"
+import HappyPetLogo from "../assets/images/happy-pet-logo.png";
 
-const Index = () => (
-    <AuthProvider
-        config={ {
-            signInRedirectURL: "https://localhost:3000",
-            signOutRedirectURL: "https://localhost:3000",
-            clientID: "<CLIENT_ID>",
-            serverOrigin: "https://api.asgardeo.io/t/<YOUR_ORGANIZATION>",
-            scope: [ "openid","profile" ]
-        } }
-    >
-        <App />
-    </AuthProvider>
-);
-
-render((<Index/>), document.getElementById("root"));
+export const Header = () => {
+  return (
+    <div className="header">
+      <img alt="happy-pet-logo" src={ HappyPetLogo }/>
+    </div>
+  )
+};

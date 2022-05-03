@@ -1,0 +1,73 @@
+# This workflow will build PRs submitted to the main branch.
+
+name: 👷 PR Builder
+
+on:
+  pull_request:
+    branches: [ main ]
+    paths_ignore:
+      - "**/*.md"
+      - ".gitignore"
+      - "LICENSE"
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: 🚧 Build
+    strategy:
+      matrix:
+        os: [ ubuntu-latest ]
+        node-version: [ "16.x" ]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: ⬇️ Checkout
+        id: checkout
+        uses: actions/checkout@v2.3.3
+
+      - name: 🟢 Setup node ${{ matrix.node-version }}
+        id: setup-node
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'yarn'
+
+      - name: 🛠️ Bootstrap Dependencies
+        id: bootstrap-dependencies-with-cache
+        run: |
+          npm install -g yarn
+          yarn install --frozen-lockfile
+
+      - name: 🏗️ Build
+        id: build-the-mono-repo
+        env:
+          CI: false # Temp disable Lint warnings treated as errors.
+        run: |
+          cd apps/happy-pets
+          touch .env.local
+          echo "REACT_APP_ASAGRDEO_BASE_URL=${{ github.event.inputs.happy_pets_asgardeo_base_url }}" >> .env.local
+          echo "REACT_APP_ASGARDEO_CLIENT_ID=${{ github.event.inputs.happy_pets_client_id }}" >> .env.local
+          echo "REACT_APP_ASAGRDEO_SIGN_IN_REDIRECT_URL=${{ github.event.inputs.happy_pets_sign_in_redirect_url }}" >> .env.local
+          echo "REACT_APP_ASAGRDEO_SIGN_OUT_REDIRECT_URL=${{ github.event.inputs.happy_pets_sign_out_redirect_url }}" >> .env.local
+
+          cd .. && cd netflix
+          touch .env.local
+          echo "REACT_APP_ASAGRDEO_BASE_URL=${{ github.event.inputs.netflix_asgardeo_base_url }}" >> .env.local
+          echo "REACT_APP_ASGARDEO_CLIENT_ID=${{ github.event.inputs.netflix_client_id }}" >> .env.local
+          echo "REACT_APP_ASAGRDEO_SIGN_IN_REDIRECT_URL=${{ github.event.inputs.netflix_sign_in_redirect_url }}" >> .env.local
+          echo "REACT_APP_ASAGRDEO_SIGN_OUT_REDIRECT_URL=${{ github.event.inputs.netflix_sign_out_redirect_url }}" >> .env.local
+
+          cd ../..
+          yarn build
+
+      - name: 🐱 Get Yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+
+      - name: 🧶 Cache Yarn Packages
+        uses: actions/cache@v3
+        id: yarn-cache
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
