@@ -8,7 +8,7 @@ function App() {
 
   if (state.isLoading) {
     return <Loader />;
- }
+  }
 
   return (
     <div className="App">

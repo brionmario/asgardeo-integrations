@@ -1,12 +1,25 @@
 module.exports = {
-  extends: ["next", "prettier"],
+  extends: [
+    "react-app",
+    "react-app/jest"
+  ],
   settings: {
     next: {
-      rootDir: ["apps/*/", "packages/*/"],
+      rootDir: [ "apps/*/", "packages/*/" ],
     },
   },
   rules: {
-    "@next/next/no-html-link-for-pages": "off",
-    "react/jsx-key": "off",
+    "indent": [
+      "warn",
+      2
+    ],
+    "object-curly-spacing": [
+        "warn",
+        "always"
+    ],
+    "quotes": [
+        "warn",
+        "double"
+    ]
   },
 };

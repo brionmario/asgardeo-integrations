@@ -22,6 +22,8 @@
   },
   "packageManager": "yarn@1.22.18",
   "resolutions": {
-    "babel-loader": "8.1.0"
+    "babel-loader": "8.1.0",
+    "react": "18.1.0",
+    "react-dom": "18.1.0"
   }
 }

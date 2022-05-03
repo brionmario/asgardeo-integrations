@@ -17,24 +17,33 @@
  */
 
 import React from "react";
-import { render } from "react-dom";
+import ReactDOM from "react-dom/client";
 import "./index.css";
-import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import App from "./App";
+import reportWebVitals from "./reportWebVitals";
 import { AuthProvider } from "@asgardeo/auth-react";
 
-const Index = () => (
+const root = ReactDOM.createRoot(document.getElementById("root"));
+
+root.render(
+  <React.StrictMode>
     <AuthProvider
-        config={ {
-            signInRedirectURL: process.env.REACT_APP_ASAGRDEO_SIGN_IN_REDIRECT_URL,
-            signOutRedirectURL: process.env.REACT_APP_ASAGRDEO_SIGN_OUT_REDIRECT_URL,
-            clientID: process.env.REACT_APP_ASGARDEO_CLIENT_ID,
-            serverOrigin: process.env.REACT_APP_ASAGRDEO_BASE_URL,
-            scope: [ "openid","profile" ]
-        } }
+      config={ {
+        signInRedirectURL: process.env.REACT_APP_ASAGRDEO_SIGN_IN_REDIRECT_URL,
+        signOutRedirectURL: process.env.REACT_APP_ASAGRDEO_SIGN_OUT_REDIRECT_URL,
+        clientID: process.env.REACT_APP_ASGARDEO_CLIENT_ID,
+        baseUrl: process.env.REACT_APP_ASAGRDEO_BASE_URL,
+        scope: [ "openid","profile" ],
+        disableTrySignInSilently: true,
+        enableOIDCSessionManagement: true
+      } }
     >
-        <App />
+      <App />
     </AuthProvider>
+  </React.StrictMode>
 );
 
-render((<Index/>), document.getElementById("root"));
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+reportWebVitals();
