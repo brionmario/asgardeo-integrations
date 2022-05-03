@@ -3,7 +3,7 @@
     "default": "asgardeo-integrations"
   },
   "targets": {
-    "react-sdk-integration-samples": {
+    "asgardeo-integrations": {
       "hosting": {
         "happy-pets": [
           "happy-pets"
