@@ -1,13 +1,6 @@
 name: 🚀 Deploy to Firebase
 
 on:
-  push:
-    branches:
-      - main
-    paths-ignore:
-      - '**/docs/**'
-      - '**/README.md'
-      - '**/.gitignore'
   workflow_dispatch:
     inputs:
       happy_pets_sign_in_redirect_url:
