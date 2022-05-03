@@ -1,5 +1,5 @@
 {
-    "name": "@asgardeo/happy-pets-app",
+    "name": "@asgardeo/happy-pets-demo-app",
     "description": "Sample app showcasing Asgardeo integration with a business application using Asgardeo React SDK",
     "version": "0.1.0",
     "private": true,
