@@ -18,13 +18,13 @@ npm install -g yarn
 
 ## Setup
 
-Install Packages
+### Install Packages
 
 ```shell
 yarn
 ```
 
-Build the Mono-repo
+### Build the Mono-repo
 
 ```shell
 yarn build
