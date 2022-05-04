@@ -5,11 +5,11 @@
   "targets": {
     "asgardeo-integrations": {
       "hosting": {
-        "happy-pets-demo-2022": [
+        "happy-pets": [
           "happy-pets-demo"
         ],
-        "netflix-demo-2022": [
-          "netflix-demo-2022"
+        "netflix": [
+          "nfx-demo"
         ]
       }
     }
