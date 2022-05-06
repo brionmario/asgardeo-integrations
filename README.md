@@ -5,7 +5,7 @@ Repo containing sample apps covering [Asgardeo](https://wso2.com/asgardeo/) Inte
 |  App          | Access URL    |
 | :------------ |:------------- |
 | Happy Pets    | https://happy-pets-demo.web.app/ |
-| Netflix    | https://netflix-demo-2022.web.app/ |
+| Netflix    | https://nflx-demo.web.app |
 
 ## Prerequisites
 
