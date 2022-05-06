@@ -1,6 +1,16 @@
-# Asgardeo Integrations
+<p align="center" style="padding-top: 20px">
+  <h1 align="center">Asgardeo Integrations</h1>
+  <p align="center">Repo containing sample apps covering <a href="https://wso2.com/asgardeo/">Asgardeo</a> Integration use-cases.</p>
+</p>
 
-Repo containing sample apps covering [Asgardeo](https://wso2.com/asgardeo/) Integration use-cases.
+<div align="center">
+
+  <a href="">[![👷 PR Builder](https://github.com/brionmario/asgardeo-integrations/actions/workflows/pr-builder.yml/badge.svg)](https://github.com/brionmario/asgardeo-integrations/actions/workflows/pr-builder.yml)</a>
+  <a href="">[![🚀 Deploy to Firebase](https://github.com/brionmario/asgardeo-integrations/actions/workflows/firebase-deploy.yml/badge.svg)](https://github.com/brionmario/asgardeo-integrations/actions/workflows/firebase-deploy.yml)</a>
+
+</div>
+
+## App Index
 
 |  App          | Access URL    |
 | :------------ |:------------- |
