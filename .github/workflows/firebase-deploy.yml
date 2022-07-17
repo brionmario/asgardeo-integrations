@@ -56,9 +56,9 @@ jobs:
           touch .env.local
           echo "REACT_APP_ASGARDEO_BASE_URL=https://api.asgardeo.io/t/drogo" >> .env.local
           echo "REACT_APP_ASGARDEO_CLIENT_ID=W1eTlU6xX_0Tm3I6g7SJdaVcpk0a" >> .env.local
-          echo "REACT_APP_ASGARDEO_SIGN_IN_REDIRECT_URL=${{ github.event.inputs.drogo_sign_in_redirect_url }}" >> .env.local
+          echo "REACT_APP_ASGARDEO_SIGN_IN_REDIRECT_URL=https://drogo-nft-demo.web.app" >> .env.local
           echo "REACT_APP_ASGARDEO_SIGN_OUT_REDIRECT_URL=https://drogo-nft-demo.web.app" >> .env.local
-          echo "REACT_APP_ASGARDEO_DROGO_ORG_SELF_SIGN_UP_URL=https://drogo-nft-demo.web.app" >> .env.local
+          echo "REACT_APP_ASGARDEO_DROGO_ORG_SELF_SIGN_UP_URL=" >> .env.local
 
           cd ../..
           yarn build
