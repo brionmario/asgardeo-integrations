@@ -1,6 +1,6 @@
 import { useAuthContext } from "@asgardeo/auth-react";
 import { Loader } from "../components";
-import "../landing.css";
+import "../assets/css/pages/landing.css";
 
 export const LandingPage = () => {
   

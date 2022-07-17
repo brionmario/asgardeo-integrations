@@ -1,6 +1,6 @@
 import { useAuthContext } from "@asgardeo/auth-react";
 import { Loader } from "../components";
-import "../home.css";
+import "../assets/css/pages/home.css";
 
 export const HomePage = () => {
 
