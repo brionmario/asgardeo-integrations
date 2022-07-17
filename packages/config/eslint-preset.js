@@ -17,7 +17,12 @@ module.exports = {
         "warn",
         "always"
     ],
-    "quotes": [
+    semi: [
+      "error",
+      "always"
+    ],
+    "jsx-a11y/anchor-is-valid": [ "off" ],
+    quotes: [
         "warn",
         "double"
     ]

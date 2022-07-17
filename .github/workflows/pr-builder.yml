@@ -42,21 +42,6 @@ jobs:
         env:
           CI: false # Temp disable Lint warnings treated as errors.
         run: |
-          cd apps/happy-pets
-          touch .env.local
-          echo "REACT_APP_ASAGRDEO_BASE_URL=${{ github.event.inputs.happy_pets_asgardeo_base_url }}" >> .env.local
-          echo "REACT_APP_ASGARDEO_CLIENT_ID=${{ github.event.inputs.happy_pets_client_id }}" >> .env.local
-          echo "REACT_APP_ASAGRDEO_SIGN_IN_REDIRECT_URL=${{ github.event.inputs.happy_pets_sign_in_redirect_url }}" >> .env.local
-          echo "REACT_APP_ASAGRDEO_SIGN_OUT_REDIRECT_URL=${{ github.event.inputs.happy_pets_sign_out_redirect_url }}" >> .env.local
-
-          cd .. && cd netflix
-          touch .env.local
-          echo "REACT_APP_ASAGRDEO_BASE_URL=${{ github.event.inputs.netflix_asgardeo_base_url }}" >> .env.local
-          echo "REACT_APP_ASGARDEO_CLIENT_ID=${{ github.event.inputs.netflix_client_id }}" >> .env.local
-          echo "REACT_APP_ASAGRDEO_SIGN_IN_REDIRECT_URL=${{ github.event.inputs.netflix_sign_in_redirect_url }}" >> .env.local
-          echo "REACT_APP_ASAGRDEO_SIGN_OUT_REDIRECT_URL=${{ github.event.inputs.netflix_sign_out_redirect_url }}" >> .env.local
-
-          cd ../..
           yarn build
 
       - name: 🐱 Get Yarn cache directory path
