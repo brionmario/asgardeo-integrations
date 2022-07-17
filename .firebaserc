@@ -10,6 +10,9 @@
         ],
         "netflix": [
           "nflx-demo"
+        ],
+        "drogo-nft": [
+          "drogo-nft-demo"
         ]
       }
     }
