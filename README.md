@@ -14,7 +14,7 @@
 
 |  App          | Access URL    |
 | :------------ |:------------- |
-| Happy Pets    | https://happy-pets-demo.web.app/ |
+| Happy Pets    | https://happy-pets-demo.web.app |
 | Netflix    | https://nflx-demo.web.app |
 
 ## Prerequisites

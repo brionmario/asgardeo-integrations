@@ -16,7 +16,7 @@
  * under the License.
  */
 
-import React from "react"
+import React from "react";
 import HappyPetLogo from "../assets/images/happy-pet-logo.png";
 
 export const Header = () => {
@@ -24,5 +24,5 @@ export const Header = () => {
     <div className="header">
       <img alt="happy-pet-logo" src={ HappyPetLogo }/>
     </div>
-  )
+  );
 };
