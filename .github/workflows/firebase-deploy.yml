@@ -1,3 +1,5 @@
+# This workflow will Deploy the apps to Firebase.
+
 name: 🚀 Deploy to Firebase
 
 on:
