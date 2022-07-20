@@ -55,3 +55,7 @@ yarn start
 cd apps/happy-pets
 yarn start
 ```
+
+## Contributing
+
+If you would like to contribute to the project by adding new integration apps, follow the [CONTRIBUTING](./CONTRIBUTING.md) guide.
