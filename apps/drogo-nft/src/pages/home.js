@@ -42,7 +42,11 @@ export const HomePage = () => {
 
       if (idToken.given_name || idToken.family_name) {
         setSalutation(`${ idToken.given_name } ${ idToken.family_name }`);
+
+        return;
       }
+
+      setSalutation(idToken.sub);
     })();
   }, [ getDecodedIDToken, state?.isAuthenticated ]);
 
