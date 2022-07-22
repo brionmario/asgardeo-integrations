@@ -32,7 +32,7 @@
 }
 
 body {
-  background-color: #111111;
+  background-color: #190827;
   font-family: "Inter", sans-serif;
   margin: 0 80px;
   overflow-x: hidden;
@@ -93,7 +93,7 @@ main .initial_wrapper .title_wrapper {
 main .initial_wrapper .title_wrapper #uptitle {
   color: #ff3998;
   font-weight: bold;
-  font-size: 32px;
+  font-size: 28px;
   margin-bottom: 24px;
 }
 

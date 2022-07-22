@@ -46,6 +46,12 @@ export const HomePage = () => {
         return;
       }
 
+      if (idToken.preferred_username) {
+        setSalutation(idToken.preferred_username);
+
+        return;
+      }
+
       setSalutation(idToken.sub);
     })();
   }, [ getDecodedIDToken, state?.isAuthenticated ]);
