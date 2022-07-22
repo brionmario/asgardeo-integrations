@@ -16,7 +16,7 @@
 | :------------ |:------------- |
 | Happy Pets    | https://happy-pets-demo.web.app |
 | Netflix    | https://nflx-demo.web.app |
-| Drogo NFT    | drogo-nft-demo.web.app |
+| Drogo NFT    | https://drogo-nft-demo.web.app |
 
 ## Prerequisites
 
