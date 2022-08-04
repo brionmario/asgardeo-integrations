@@ -110,10 +110,18 @@ export const HomePage = () => {
               )
             }
             <h1>NFT Marketplace like no other</h1>
-            <p id="subtitle">
-              Don't miss out on the new releases. Sign up to receive updates on latest updates.
-            </p>
-            <button><img src="images/initial-wrapper/cta.svg" alt="" /></button>
+            {
+              !state.isAuthenticated && (
+                <Fragment>
+                  <p id="subtitle">
+                    Don't miss out on the new releases. Sign up to receive updates on latest updates.
+                  </p>
+                  <button onClick={ () => window.open(process.env.REACT_APP_ASGARDEO_DROGO_ORG_SELF_SIGN_UP_URL, "_blank", "noopener") }>
+                    <img src="images/initial-wrapper/cta.svg" alt="" />
+                  </button>
+                </Fragment>
+              )
+            }
           </div>
           <div className="title_img_wrapper">
             <img src="images/initial-wrapper/hero.png" alt="" />
@@ -125,7 +133,11 @@ export const HomePage = () => {
             <div className="second_left_wrapper">
               <img src="images/second-wrapper/drogo-online.svg" alt="" />
               <h2>Free NFT for early birds</h2>
-              <p>Sign up today and you'll get a free NFT.</p>
+              {
+                state.isAuthenticated
+                  ? <p>Congratulations! You are eligible for a free NFT.</p>
+                  : <p>Sign up today and you'll get a free NFT.</p>
+              }
             </div>
             <div className="second_right_wrapper">
               <img src="images/second-wrapper/nftcard.png" alt="" />
@@ -162,7 +174,7 @@ export const HomePage = () => {
                   These will be the only four of these NFTs we ever make, so be sure not to miss out!
                 <br/><br/>50% of proceeds go to charity.
               </p>
-              <button>Check them out &#8594</button>
+              <button>Check them out <a className="dark">here</a></button>
             </div>
             <div className="fifth_right_wrapper">
               <img src="images/fifth-wrapper/nft01.png" alt="" />
@@ -186,7 +198,7 @@ export const HomePage = () => {
                 These are the most popular NFTs that are getting sold as hotcakes.
                 Hurry now, do not to miss out!
               </p>
-              <button>Check them out &#8594</button>
+              <button>Check them out <a className="dark">here</a></button>
             </div>
           </div>
         </section>
@@ -196,7 +208,7 @@ export const HomePage = () => {
             <img src="images/seventh-wrapper/icon-1.png" alt="nft-logo" />
             <h2>NFTs like no other</h2>
             <p>
-                Don’t miss out on the release of our new NFT. Sign up below to receive updates.
+                Don’t miss out on the release of our new NFTs. Subscribe to our newsletter to stay tuned.
               <br/><br/>
               These NFTs will be released in limited quantities. These are ideal for collectors.
               So hurry now!.
@@ -208,8 +220,7 @@ export const HomePage = () => {
             <p>
                 We have been recognized as the most popular NFT marketplace by the Etherium community.
               <br/><br/>
-              Don’t miss out on the release of our new NFT. Sign up below to receive updates when we go live on
-              18/9.Don’t miss out on the release of our new NFT. </p>
+              Don’t miss out on the release of our new NFT. Subscribe to our newsletter to stay tuned. </p>
           </div>
         </section>
 
@@ -220,7 +231,13 @@ export const HomePage = () => {
               Stay upto date with what's happening in the world of NFT by subscribing to our weekly
               newsletter. Do not worry, we won't spam!
             </p>
-            <button><img src="images/initial-wrapper/cta.svg" alt="" /></button>
+            {
+              !state.isAuthenticated && (
+                <button onClick={ () => window.open(process.env.REACT_APP_ASGARDEO_DROGO_ORG_SELF_SIGN_UP_URL, "_blank", "noopener") }>
+                  <img src="images/initial-wrapper/cta.svg" alt="" />
+                </button>
+              )
+            }
           </div>
 
         </section>

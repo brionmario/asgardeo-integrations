@@ -44,6 +44,11 @@ body a {
   cursor: pointer;
 }
 
+a.dark {
+  color: #5d5d5d;
+  text-decoration: underline;
+}
+
 body a:hover {
   color: #ffffff;
 }
