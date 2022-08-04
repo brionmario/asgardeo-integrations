@@ -16,6 +16,7 @@
 | :------------ |:------------- |
 | Happy Pets    | https://happy-pets-demo.web.app |
 | Netflix    | https://nflx-demo.web.app |
+| Drogo NFT    | https://drogo-nft-demo.web.app |
 
 ## Prerequisites
 
@@ -53,6 +54,13 @@ yarn start
 
 ```shell
 cd apps/happy-pets
+yarn start
+```
+
+### Drogo NFT
+
+```shell
+cd apps/drogo-nft
 yarn start
 ```
 
