@@ -16,21 +16,6 @@
       ]
     },
     {
-      "target": "netflix",
-      "public": "apps/netflix/build",
-      "ignore": [
-        "firebase.json",
-        "**/.*",
-        "**/node_modules/**"
-      ],
-      "rewrites": [
-        {
-          "source": "**",
-          "destination": "/index.html"
-        }
-      ]
-    },
-    {
       "target": "drogo-nft",
       "public": "apps/drogo-nft/build",
       "ignore": [
